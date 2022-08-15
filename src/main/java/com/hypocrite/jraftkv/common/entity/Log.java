@@ -1,8 +1,6 @@
 package com.hypocrite.jraftkv.common.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -12,7 +10,8 @@ import java.io.Serializable;
  */
 @Data
 @Builder
-@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Log implements Serializable {
     private String key;
     private String value;
