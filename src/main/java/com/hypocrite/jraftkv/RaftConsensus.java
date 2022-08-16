@@ -1,9 +1,9 @@
 package com.hypocrite.jraftkv;
 
-import com.hypocrite.jraftkv.common.AppendEntriesParam;
-import com.hypocrite.jraftkv.common.AppendEntriesRes;
-import com.hypocrite.jraftkv.common.RequestVoteParam;
-import com.hypocrite.jraftkv.common.RequestVoteRes;
+import com.hypocrite.jraftkv.common.consensus.AppendEntriesParam;
+import com.hypocrite.jraftkv.common.consensus.AppendEntriesRes;
+import com.hypocrite.jraftkv.common.consensus.RequestVoteParam;
+import com.hypocrite.jraftkv.common.consensus.RequestVoteRes;
 
 /**
  * Raft Consensus module

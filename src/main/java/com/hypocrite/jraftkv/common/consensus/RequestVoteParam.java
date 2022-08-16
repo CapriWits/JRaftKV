@@ -1,4 +1,4 @@
-package com.hypocrite.jraftkv.common;
+package com.hypocrite.jraftkv.common.consensus;
 
 import lombok.Builder;
 import lombok.Data;

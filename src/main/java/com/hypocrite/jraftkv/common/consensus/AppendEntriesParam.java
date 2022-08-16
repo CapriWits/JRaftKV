@@ -1,4 +1,4 @@
-package com.hypocrite.jraftkv.common;
+package com.hypocrite.jraftkv.common.consensus;
 
 import com.hypocrite.jraftkv.common.entity.LogEntry;
 import lombok.Builder;
