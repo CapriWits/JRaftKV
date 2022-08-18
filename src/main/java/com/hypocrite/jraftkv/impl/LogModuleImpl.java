@@ -57,11 +57,20 @@ public class LogModuleImpl implements LogModule {
     }
 
     public static LogModuleImpl getInstance() {
-        return LogModuleImplLazyHolder.INSTANCE;
+        return Singleton.INSTANCE.getInstance();
     }
 
-    private static class LogModuleImplLazyHolder {
-        private static final LogModuleImpl INSTANCE = new LogModuleImpl();
+    private enum Singleton {
+        INSTANCE;
+        private LogModuleImpl singleton;
+
+        Singleton() {
+            singleton = new LogModuleImpl(); // JVM guarantee to execute only once
+        }
+
+        public LogModuleImpl getInstance() {
+            return singleton;
+        }
     }
 
     @Override

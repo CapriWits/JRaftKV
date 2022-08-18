@@ -44,11 +44,20 @@ public class StateMachineImpl implements StateMachine {
     }
 
     public static StateMachineImpl getInstance() {
-        return DefaultStateMachineLazyHolder.INSTANCE;
+        return Singleton.INSTANCE.getInstance();
     }
 
-    private static class DefaultStateMachineLazyHolder {
-        private static final StateMachineImpl INSTANCE = new StateMachineImpl();
+    private enum Singleton {
+        INSTANCE;
+        private StateMachineImpl stateMachine;
+
+        Singleton() {
+            stateMachine = new StateMachineImpl();
+        }
+
+        public StateMachineImpl getInstance() {
+            return stateMachine;
+        }
     }
 
     @Override
