@@ -16,8 +16,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LogEntry implements Serializable, Comparable<LogEntry> {
-    private Long index;
-    private long term;
+    private Long index; // log index, started from 1
+    private long term;  // term when entry was received by leader
     private Log log;
 
     @Override
