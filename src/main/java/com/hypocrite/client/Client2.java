@@ -1,6 +1,5 @@
 package com.hypocrite.client;
 
-import com.hypocrite.jraftkv.common.entity.LogEntry;
 import com.hypocrite.jraftkv.util.ThreadUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +14,7 @@ public class Client2 {
         for (int i = 3; ; i++) {
             try {
                 String key = "key2:" + i;
-                LogEntry logEntry = rpcModule.get(key);
+                ClientKVResponse logEntry = rpcModule.get(key);
                 log.info("key: [{}], rpc response LogEntry: [{}]", key, logEntry);
             } catch (Exception e) {
                 log.error(e.getMessage(), e);

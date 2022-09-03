@@ -1,8 +1,6 @@
 package com.hypocrite.jraftkv.common.consensus;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -15,7 +13,17 @@ import java.io.Serializable;
 @Data
 @ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AppendEntriesRes implements Serializable {
     private long term;          // current term, for leader to update itself
     private boolean success;    // true if follower contains entry matching prevLogIndex & prevLogTerm
+
+    public AppendEntriesRes(boolean success) {
+        this.success = success;
+    }
+
+    public static AppendEntriesRes fail() {
+        return new AppendEntriesRes(false);
+    }
 }

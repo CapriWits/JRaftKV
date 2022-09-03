@@ -1,7 +1,9 @@
 package com.hypocrite.jraftkv.common.changes;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Author: Hypocrite30
@@ -9,6 +11,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MemberShipChangesRes {
 
     public static final int FAIL = 0;

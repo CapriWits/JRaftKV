@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * AppendEntry parameter
  *
@@ -14,7 +16,7 @@ import lombok.ToString;
 @Data
 @Builder
 @ToString
-public class AppendEntriesParam {
+public class AppendEntriesParam implements Serializable {
     private long term;          // leader's term
     private String leaderId;    // so follower can redirect clients
     private long prevLogIndex;  // index of log entry immediately preceding new ones

@@ -13,11 +13,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RpcClientImpl implements RpcClient {
 
-    private final com.alipay.remoting.rpc.RpcClient rpcClient;
-
-    public RpcClientImpl() {
-        rpcClient = new com.alipay.remoting.rpc.RpcClient();
-    }
+    private final static com.alipay.remoting.rpc.RpcClient rpcClient = new com.alipay.remoting.rpc.RpcClient();
 
     @Override
     public <T> T sendRequest(RpcRequest rpcRequest) {
@@ -26,15 +22,15 @@ public class RpcClientImpl implements RpcClient {
 
     @Override
     public <T> T sendRequest(RpcRequest rpcRequest, int timeout) {
-        RpcResponse<T> rpcResponse;
+        RpcResponse<T> rpcResponse = null;
         try {
             rpcResponse = (RpcResponse<T>) rpcClient.invokeSync(rpcRequest.getUrl(), rpcRequest, timeout);
             return rpcResponse.getResult();
         } catch (RemotingException e) {
             throw new RaftRemotingException("RPC send request error", e);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
+        return null;
     }
 
     @Override
